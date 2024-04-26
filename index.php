@@ -98,6 +98,25 @@
             }
         }
 
+        @media print {
+            body {
+                visibility: hidden;
+            }
+
+            #container,
+            #container * {
+                visibility: visible;
+            }
+
+            form,
+            label,
+            select,
+            input,
+            button {
+                display: none !important;
+            }
+        }
+
     </style>
 </head>
 
@@ -180,13 +199,11 @@
                 {
                     $total = $this->hitungTotal();
                     echo "<div class='bukti-transaksi'>";
-                    echo "<hr>"; // Garis putus-putus sebelum output
                     echo "<h3>Bukti Transaksi:</h3>";
                     echo "<p><strong>Anda membeli bahan bakar minyak dengan tipe :</strong> " . $this->jenis . "</p>";
                     echo "<p><strong>dengan jumlah :</strong> " . $this->jumlah . " Liter</p>";
                     echo "<p><strong>Total yang harus anda bayar:</strong> Rp " . number_format($total, 2, ',', '.') . "</p>";
                     echo "<p><strong>Metode Pembayaran:</strong> " . $metode . "</p>";
-                    echo "<hr>"; // Garis putus-putus setelah output
                     echo "</div>";
 
                     // Tambahkan tombol untuk mencetak
